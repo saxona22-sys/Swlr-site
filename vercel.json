@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Southwest Llama Rescue</title>
+  <meta name="description" content="Southwest Llama Rescue helps llamas and alpacas through rescue, fostering, adoption, and donor support across the Southwest." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --color-bg: #f6f1e8; --color-surface: #fcfaf6; --color-surface-2: #f3ece2; --color-border: #d8cfbf; --color-divider: #ddd4c7; --color-text: #2f261c; --color-text-muted: #6d655b; --color-text-inverse: #fffdf8; --color-primary: #46633f; --color-primary-hover: #385133; --color-primary-highlight: #d9e4d3; --color-accent-soft: #f2e0c9;
+      --radius-sm: 0.375rem; --radius-lg: 0.875rem; --radius-xl: 1.25rem; --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px rgba(47,38,28,.06); --shadow-md: 0 10px 30px rgba(47,38,28,.08); --shadow-lg: 0 20px 50px rgba(47,38,28,.12);
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1); --content-default: 1120px; --font-display: 'Instrument Serif', Georgia, serif; --font-body: 'Work Sans', Arial, sans-serif;
+    }
+    [data-theme="dark"] {
+      --color-bg: #191612; --color-surface: #201c18; --color-surface-2: #28231e; --color-border: #463e34; --color-divider: #39332c; --color-text: #ede6db; --color-text-muted: #b2a89b; --color-text-inverse: #1f1a15; --color-primary: #87ab78; --color-primary-hover: #9ac189; --color-primary-highlight: #2a3425; --color-accent-soft: #43311f; --shadow-sm: 0 1px 2px rgba(0,0,0,.25); --shadow-md: 0 10px 30px rgba(0,0,0,.3); --shadow-lg: 0 20px 50px rgba(0,0,0,.4);
+    }
+    * , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { min-height: 100dvh; font-family: var(--font-body); font-size: var(--text-base); line-height: 1.65; color: var(--color-text); background: var(--color-bg); }
+    img, svg { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: 0; background: none; }
+    p { max-width: 70ch; color: var(--color-text-muted); }
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.05; letter-spacing: -0.02em; }
+    .container { width: min(calc(100% - 2rem), var(--content-default)); margin-inline: auto; }
+    .section { padding-block: clamp(var(--space-12), 9vw, var(--space-24)); }
+    .eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); padding: .45rem .8rem; border-radius: var(--radius-full); background: var(--color-primary-highlight); color: var(--color-primary); font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .12em; }
+    .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: .65rem; padding: .9rem 1.2rem; border-radius: var(--radius-full); font-size: var(--text-sm); font-weight: 600; transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition); border: 1px solid transparent; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--color-primary); color: var(--color-text-inverse); }
+    .btn-primary:hover { background: var(--color-primary-hover); }
+    .btn-secondary { background: transparent; border-color: var(--color-border); color: var(--color-text); }
+    .btn-soft { background: var(--color-accent-soft); color: var(--color-text); }
+    .site-header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px); background: color-mix(in srgb, var(--color-bg) 88%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: 76px; }
+    .brand { display: inline-flex; align-items: center; gap: .85rem; font-weight: 700; }
+    .brand-mark { width: 2.8rem; height: 2.8rem; border-radius: .95rem; display: grid; place-items: center; background: linear-gradient(135deg, var(--color-primary-highlight), var(--color-surface)); color: var(--color-primary); box-shadow: var(--shadow-sm); flex-shrink: 0; }
+    .brand-sub { font-size: var(--text-xs); color: var(--color-text-muted); font-weight: 500; }
+    .nav-links { display: none; align-items: center; gap: var(--space-5); }
+    .nav-links a { font-size: var(--text-sm); color: var(--color-text-muted); }
+    .header-actions { display: flex; align-items: center; gap: .75rem; }
+    .theme-toggle { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--color-border); background: var(--color-surface); display: grid; place-items: center; }
+    .hero { padding-top: clamp(var(--space-10), 6vw, var(--space-20)); }
+    .hero-grid, .grid-2, .stories, .help-grid, .footer-grid { display: grid; gap: var(--space-5); }
+    .hero-grid { gap: var(--space-10); align-items: center; }
+    .hero-copy h1 { font-size: clamp(2.75rem, 7vw, 5.8rem); max-width: 10ch; margin-top: var(--space-5); }
+    .hero-copy p { margin-top: var(--space-5); font-size: var(--text-lg); max-width: 36ch; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: var(--space-6); }
+    .hero-stats { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--space-4); margin-top: var(--space-8); }
+    .stat, .mission-panel, .impact-panel, .resource-panel, .help-card, .story { background: var(--color-surface); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); }
+    .stat { padding: var(--space-5); }
+    .stat strong { display: block; font-size: var(--text-xl); color: var(--color-text); }
+    .hero-art { position: relative; min-height: 520px; border-radius: 2rem; overflow: hidden; background: radial-gradient(circle at top left, rgba(208,154,90,.26), transparent 35%), linear-gradient(180deg, rgba(70,99,63,.08), transparent 50%), var(--color-surface); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); box-shadow: var(--shadow-lg); padding: var(--space-6); }
+    .hero-photo { width: 100%; height: 100%; object-fit: cover; border-radius: 1.4rem; min-height: 420px; }
+    .hero-card { position: absolute; left: var(--space-6); bottom: var(--space-6); max-width: 320px; padding: var(--space-5); border-radius: var(--radius-xl); background: color-mix(in srgb, var(--color-surface) 88%, transparent); backdrop-filter: blur(16px); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); }
+    .section-head { display: grid; gap: var(--space-4); margin-bottom: var(--space-8); }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 3.3rem); max-width: 12ch; }
+    .mission-panel, .impact-panel, .resource-panel, .help-card { padding: clamp(var(--space-5), 3vw, var(--space-8)); }
+    .check-list { display: grid; gap: var(--space-3); margin-top: var(--space-5); }
+    .check-list li { list-style: none; display: flex; gap: .75rem; color: var(--color-text-muted); }
+    .stories { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .story img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+    .story-body { padding: var(--space-5); }
+    .help-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .resource-list { display: grid; gap: var(--space-4); margin-top: var(--space-6); }
+    .resource-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-divider); }
+    .contact-band { background: var(--color-text); color: var(--color-text-inverse); border-radius: 2rem; padding: clamp(var(--space-6), 5vw, var(--space-10)); display: grid; gap: var(--space-5); }
+    .contact-links { display: flex; flex-wrap: wrap; gap: .85rem; }
+    .contact-links a { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: .85rem 1rem; border-radius: var(--radius-full); background: color-mix(in srgb, white 10%, transparent); color: var(--color-text-inverse); border: 1px solid color-mix(in srgb, white 15%, transparent); }
+    .site-footer { padding-block: var(--space-8); }
+    .footer-grid { border-top: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); padding-top: var(--space-6); }
+    .fine { font-size: var(--text-sm); color: var(--color-text-muted); }
+    @media (min-width: 760px) { .nav-links { display: flex; } .hero-grid, .grid-2, .footer-grid { grid-template-columns: 1.1fr .9fr; } }
+    @media (max-width: 759px) { .header-actions .btn-secondary { display: none; } .hero-art { min-height: 420px; } .hero-card { position: static; margin-top: var(--space-4); max-width: none; } .hero-stats { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Southwest Llama Rescue home">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="34" height="34" fill="none"><path d="M21 51V24l7-12 5 6 4-6 7 12v27" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 51h23" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/><circle cx="30" cy="26" r="1.9" fill="currentColor"/><circle cx="40" cy="26" r="1.9" fill="currentColor"/></svg>
+        </div>
+        <div>
+          <div>Southwest Llama Rescue</div>
+          <div class="brand-sub">Rescue, foster, adopt, and support</div>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#mission">Mission</a>
+        <a href="#help">Ways to help</a>
+        <a href="#adopt">Adopt & surrender</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color mode">◐</button>
+        <a class="btn btn-secondary" href="mailto:SouthwestLlamaRescue@gmail.com">Email SWLR</a>
+        <a class="btn btn-primary" href="https://www.southwestllamarescue.net/donate" target="_blank" rel="noopener noreferrer">Donate now</a>
+      </div>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Volunteer-run nonprofit</span>
+          <h1>Safe landings for llamas and alpacas.</h1>
+          <p>Southwest Llama Rescue supports surrender, fostering, adoption, transport, and daily care so vulnerable animals can move into healthier, safer homes.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://www.southwestllamarescue.net/donate" target="_blank" rel="noopener noreferrer">Give today</a>
+            <a class="btn btn-secondary" href="#adopt">Adopt or surrender</a>
+            <a class="btn btn-soft" href="#help">Volunteer or foster</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>$75</strong><span>Approximate monthly feed and housing cost per llama.</span></div>
+            <div class="stat"><strong>All-volunteer</strong><span>Private donations and fees help fund rescue, care, and transport.</span></div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img class="hero-photo" src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=1200&q=80" alt="Two llamas standing in a grassy field" width="1200" height="900" loading="eager" decoding="async" />
+          <div class="hero-card">
+            <h3>How rescue works</h3>
+            <p>When owners face health, financial, or life changes, SWLR helps place animals through foster care, adoption support, and coordinated transport.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="mission">
+      <div class="container grid-2">
+        <div class="section-head">
+          <span class="eyebrow">Why rescue</span>
+          <h2>Practical help for animals and the people who care about them.</h2>
+          <p>Many owners need support after a move, a loss in the family, health issues, or financial pressure. A clearer website should make it easy to ask for help early and find the right next step.</p>
+        </div>
+        <div class="mission-panel">
+          <h3 style="font-size:var(--text-xl); margin-bottom: .75rem;">What visitors need right away</h3>
+          <ul class="check-list">
+            <li>A clear donation path with online and mail options.</li>
+            <li>One place to learn how adoption, fostering, and sponsorship work.</li>
+            <li>Contact details for questions, transport, and local coordination.</li>
+            <li>Simple explanations of how gifts support feed, vet care, shearing, and shelter.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="help">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Ways to help</span>
+          <h2>Support can be financial, practical, or hands-on.</h2>
+          <p>The strongest rescue sites guide donors, adopters, and volunteers into clear action paths instead of long unstructured text.</p>
+        </div>
+        <div class="help-grid">
+          <article class="help-card"><h3>Donate</h3><p>Support feed, housing, medical needs, transport, fencing, and supplies through PayPal, Zelle, or mailed checks.</p></article>
+          <article class="help-card"><h3>Foster</h3><p>Experienced handlers with the right facilities can provide long-term foster placement and sanctuary support for harder-to-place animals.</p></article>
+          <article class="help-card"><h3>Volunteer</h3><p>SWLR can use help with animal care, transport, legal support, fundraising, records, public relations, repairs, and administration.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="adopt">
+      <div class="container grid-2">
+        <div class="impact-panel">
+          <span class="eyebrow">Donation impact</span>
+          <h2 style="font-size:clamp(2rem,4vw,3rem); margin-top:1rem;">Show donors what care really costs.</h2>
+          <p style="margin-top:1rem;">A good rescue homepage should connect every gift to an animal need so visitors understand the value of even small contributions.</p>
+        </div>
+        <div class="resource-panel">
+          <span class="eyebrow">Adopt or surrender</span>
+          <h2 style="font-size:clamp(2rem,4vw,3rem); margin-top:1rem;">Keep the process simple and human.</h2>
+          <div class="resource-list">
+            <div class="resource-row"><strong>Adoption</strong><span>Review facility requirements, complete the application, and arrange a facility check.</span></div>
+            <div class="resource-row"><strong>Fostering</strong><span>Provide an experienced, properly equipped placement for animals needing longer support.</span></div>
+            <div class="resource-row"><strong>Surrender</strong><span>Reach out early so transport, placement, and paperwork can be coordinated before a crisis grows.</span></div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-secondary" href="https://www.southwestllamarescue.org/adopt/" target="_blank" rel="noopener noreferrer">View adoption info</a>
+            <a class="btn btn-secondary" href="https://www.southwestllamarescue.org/surrender/" target="_blank" rel="noopener noreferrer">View surrender info</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-band">
+          <span class="eyebrow" style="background:rgba(255,255,255,.12); color:var(--color-text-inverse);">Contact</span>
+          <h2 style="font-size:clamp(2rem,4vw,3.4rem); max-width:11ch;">Make getting help the easiest part.</h2>
+          <p style="color:color-mix(in srgb, white 78%, transparent);">For general questions, adoption interest, surrender needs, donations, or volunteer support, keep contact choices visible and immediate.</p>
+          <div class="contact-links">
+            <a href="tel:+17208390787">Call or text (720) 839-0787</a>
+            <a href="mailto:SouthwestLlamaRescue@gmail.com">SouthwestLlamaRescue@gmail.com</a>
+            <a href="https://www.facebook.com/rescue.llamas/" target="_blank" rel="noopener noreferrer">Facebook</a>
+          </div>
+          <p style="color:color-mix(in srgb, white 75%, transparent);">184 Hoofbeat Trail, Kerrville, TX 78028</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-grid"><div class="fine">This static site is ready for Vercel deployment.</div></div></footer>
+  <script>
+    (function () {
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', mode);
+      toggle.addEventListener('click', function () { mode = mode === 'dark' ? 'light' : 'dark'; root.setAttribute('data-theme', mode); });
+    }());
+  </script>
+</body>
+</html>
